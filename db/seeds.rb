@@ -45,3 +45,12 @@ end
   )
 end
 puts "9 personalportfolios post created"
+
+3.times do |technology|
+  Technology.create!(
+    name: "Technology #{technology}",
+    personalportfolio_id: Personalportfolio.last.id
+  )
+end
+
+puts "3 Technologies created"
