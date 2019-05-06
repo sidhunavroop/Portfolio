@@ -4,5 +4,10 @@
   <p><%= @portfolio.subtitle %></p>
   <p><%= @portfolio.body %></p>
  <%= image_tag @portfolio.main_image unless @portfolio.main_image.nil? %>
+
+ <h1>Technologies Used</h1>
+ <% @portfolio.technologies.each do |t| %>
+ <p><%= t.name %></p>
+ <% end %>
  <p><%= link_to "Edit portfolio", edit_personalportfolio_path(@portfolio) %></p>
  <p><%= link_to "Delete portfolio", personalportfolio_path(@portfolio), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
