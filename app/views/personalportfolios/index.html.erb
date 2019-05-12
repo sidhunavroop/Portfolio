@@ -1,11 +1,3 @@
-<h1>Perfolio Items</h1>
+<h1>Portfolio Items</h1>
 <%= link_to "Create new portfolio", new_personalportfolio_url %>
-<% @portfolios.each do |portfolio|%>
-  <p><%= link_to portfolio.title, personalportfolio_show_path(portfolio) %></p>
-  <p><%= portfolio.subtitle %></p>
-  <p><%= portfolio.body %></p>
- <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
- <p><%= link_to "Edit portfolio", edit_personalportfolio_path(portfolio) %></p>
- <p><%= link_to "Delete portfolio", personalportfolio_path(portfolio), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
-<% end %>
-
+<%= render partial: 'portfolio', collection: @portfolios %>
