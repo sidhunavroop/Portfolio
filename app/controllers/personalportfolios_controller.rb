@@ -1,4 +1,5 @@
 class PersonalportfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout "portfolio"
   
   def index
@@ -29,12 +30,9 @@ class PersonalportfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio=Personalportfolio.find(params[:id])
   end
 
   def update
-    @portfolio=Personalportfolio.find(params[:id])
-
     respond_to do |format|
       if @portfolio.update(portfolio_params)
         format.html { redirect_to personalportfolios_path, notice: 'Portfolio was successfully updated.' }
@@ -45,11 +43,10 @@ class PersonalportfoliosController < ApplicationController
   end
 
   def show
-    @portfolio=Personalportfolio.find(params[:id])
+    
   end
 
   def destroy
-    @portfolio=Personalportfolio.find(params[:id])
     @portfolio.destroy
     respond_to do |format|
       format.html { redirect_to personalportfolios_path, notice: 'Portfolio was successfully destroyed.' }
@@ -66,4 +63,7 @@ class PersonalportfoliosController < ApplicationController
                                               )
   end
 
+  def set_portfolio_item
+    @portfolio=Personalportfolio.find(params[:id])
+  end
 end
