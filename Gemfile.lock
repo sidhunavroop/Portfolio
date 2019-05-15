@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/sidhunavroop/sidhu_view_tool
+  revision: 46cbcd31277662de5f71563407b57eddb4edc406
+  specs:
+    sidhu_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -224,6 +230,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.0)
   sass-rails (~> 5.0)
+  sidhu_view_tool!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

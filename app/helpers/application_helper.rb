@@ -15,5 +15,10 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
+
+  def copyright_generator
+    @copyright = SidhuViewTool::Renderer.copyright 'Navroop Singh Sidhu', 'All rights reserved'
+  end
+
 end
 
