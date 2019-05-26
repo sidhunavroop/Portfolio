@@ -9,13 +9,11 @@
               <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
             </div>
-
             <div class="form-group">
               <%= f.label :name %><br />
               <%= f.text_field :name, class: "form-control" %>
             </div>
           </div>
-
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :password %>
@@ -24,7 +22,6 @@
               <% end %><br />
               <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
             </div>
-
             <div class="form-group">
               <%= f.label :password_confirmation %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
