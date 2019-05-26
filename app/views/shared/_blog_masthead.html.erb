@@ -1,0 +1,7 @@
+<div class="container">
+  <header class="blog-header">
+    <h1 class="blog-post-title">My Blog</h1>
+    <p class= "lead blog-description py-2">An example of blog template built with bootstrap</p>
+    <p><%= link_to 'Write a new blog', new_blog_path if logged_in?(:site_admin) %></p>
+  </header>
+</div>
