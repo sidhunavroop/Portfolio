@@ -4,7 +4,7 @@ class PersonalportfoliosController < ApplicationController
   access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :edit, :update]}, site_admin: :all
 
   def index
-    @portfolios = Personalportfolio.all
+    @portfolios = Personalportfolio.by_position
   end
 
   def angular
