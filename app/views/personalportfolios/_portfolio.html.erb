@@ -1,5 +1,5 @@
 <div class="col-md-4">
-  <div class="card mb-4 box-shadow">
+  <div class="card mb-4 box-shadow" data-id="<%= portfolio.id %>">
     <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
     <div class="card-body">
       <p class="card-text">
@@ -21,3 +21,4 @@
 <p><%= link_to "Edit portfolio", edit_personalportfolio_path(portfolio) if logged_in?(:site_admin) %></p>
 
 <p><%= link_to "Delete portfolio", personalportfolio_path(portfolio), method: :delete, data: {confirm: "Are you sure you want to delete?"} if logged_in?(:site_admin) %></p> -->
+

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     sign_up: 'register'
   }
 
-  resources :personalportfolios, except: [:show]
+  resources :personalportfolios, except: [:show] do
+    put :sort, on: :collection
+  end
   get 'personalportfolio/:id', to: 'personalportfolios#show', as: 'personalportfolio_show'
   get 'angular-items', to: 'personalportfolios#angular'
   
