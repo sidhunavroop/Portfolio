@@ -5,6 +5,8 @@ class Personalportfolio < ApplicationRecord
                                 reject_if: lambda { |attrs| attrs['name'].blank? }
   include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
+  mount_uploader :thumb_image, PersonalportfolioUploader
+  mount_uploader :main_image, PersonalportfolioUploader
   after_initialize :set_defaults
 
   def self.by_position
