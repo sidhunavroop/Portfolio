@@ -1,7 +1,7 @@
 <%= form_for(@portfolio) do |form| %>
   <% if @portfolio.errors.any? %>
     <% @portfolio.errors.full_messages.each do |error| %>
-       <%= js add_gritter(error, title: "Navroop Singh Sidhu's Portfolio", sticky: false) %>
+       <%= alert_genertor error %>
     <% end %>
   <% end %>
   <div class="row">
