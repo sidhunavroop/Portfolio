@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <%= image_tag @portfolio.main_image unless @portfolio.main_image.nil? %>
+      
     </div>
     <div class="col-md-5">
       <h1><%= @portfolio.title %></h1>
@@ -12,11 +12,13 @@
       <% @portfolio.technologies.each do |t| %>
       <p><%= t.name %></p>
       <% end %>
+      <% if logged_in?(:site_admin)%>
+        <%= link_to "Edit portfolio", edit_personalportfolio_path(@portfolio) %><br>
+        <%= link_to "Delete portfolio", personalportfolio_path(@portfolio), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br>
+        <%= link_to "View all portfolios", personalportfolios_path%>
+      <% end %>
     </div>
   </div>
-  <%= link_to "Edit portfolio", edit_personalportfolio_path(@portfolio) %><br>
-  <%= link_to "Delete portfolio", personalportfolio_path(@portfolio), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br>
-  <%= link_to "View all portfolios", personalportfolios_path%>
 </div>
   
  

@@ -21,7 +21,6 @@ class PersonalportfoliosController < ApplicationController
 
   def new
     @portfolio = Personalportfolio.new
-    3.times { @portfolio.technologies.build }
   end
 
   def create
@@ -68,7 +67,7 @@ class PersonalportfoliosController < ApplicationController
     params.require(:personalportfolio).permit(:title,
                                               :subtitle,
                                               :body,
-                                              technologies_attributes: [:name]
+                                              technologies_attributes: [:id, :name, :_destroy]
                                               )
   end
 
