@@ -4,10 +4,10 @@ class Personalportfolio < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: lambda { |attrs| attrs['name'].blank? }
   include Placeholder
-  validates_presence_of :title, :body, :main_image, :thumb_image
+  validates_presence_of :title, :body
   mount_uploader :thumb_image, PersonalportfolioUploader
   mount_uploader :main_image, PersonalportfolioUploader
-  after_initialize :set_defaults
+  # after_initialize :set_defaults
 
   def self.by_position
     order("position ASC")
