@@ -41,6 +41,10 @@ module ApplicationHelper
       {
         url:personalportfolios_path,
         title: 'Portfolios'
+      },
+      {
+        url:tech_news_path,
+        title: 'Raptors News'
       }
     ]
   end

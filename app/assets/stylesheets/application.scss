@@ -46,7 +46,7 @@ body {
 }
 
 .cover-container {
-  max-width: 55em;
+  max-width: 65em;
 }
 
 
@@ -141,3 +141,34 @@ body {
   margin-right: 7px;
 }
 
+#background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: image-url('home_bg.png') no-repeat;
+  background-size: cover;
+}
+
+.app-footer {
+  color: white;
+}
+
+.tech-news {
+  color: black;
+  margin: 20px;
+}
+
+.tech-news > .card {
+  padding: 30px;
+}
+
+.tech-news a {
+  color: green;
+}
