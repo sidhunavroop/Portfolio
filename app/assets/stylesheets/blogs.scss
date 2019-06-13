@@ -4,6 +4,10 @@
 
 /* stylelint-disable selector-list-comma-newline-after */
 
+body{
+  font-family: 'Lato', sans-serif;
+}
+
 .blog-header {
   line-height: 1;
 }
@@ -18,7 +22,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 .display-4 {
