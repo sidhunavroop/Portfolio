@@ -1,17 +1,23 @@
-CarrierWave.configure do |config|
-  config.storage    = :aws
-  # config.aws_bucket = ENV.fetch('S3_BUCKET_NAME') # for AWS-side bucket access permissions config, see section below
-  config.aws_acl    = 'private'
-  config.aws_authenticated_url_expiration = 60 * 60 * 24 * 7
-  config.aws_attributes = -> { {
-    expires: 1.week.from_now.httpdate,
-    cache_control: 'max-age=604800'
-  } }
-  config.aws_credentials = {
-    # access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
-    # secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-    # region:            ENV.fetch('AWS_REGION'), # Required
-    stub_responses:    Rails.env.test? # Optional, avoid hitting S3 actual during tests
-  }
+# frozen_string_literal: true
 
+if Rails.env.development?
+  CarrierWave.configure do |config|
+    config.storage = :file
+    config.ignore_integrity_errors = false
+    config.ignore_processing_errors = false
+    config.ignore_download_errors = false
+  end
+else
+  CarrierWave.configure do |config|
+    config.fog_provider = 'fog/aws'
+    config.fog_credentials = {
+      provider: 'AWS',
+      aws_access_key_id: ENV['AWS_ACCESS_KEY'],
+      aws_secret_access_key: ENV['AWS_SECRET_KEY'],
+      region: ENV['AWS_REGION_NAME']
+    }
+    config.fog_attributes = { 'x-amz-server-side-encryption' => 'AES256' }
+    config.fog_directory = ENV['AWS_BUCKET_NAME']
+    config.storage = :fog
+  end
 end

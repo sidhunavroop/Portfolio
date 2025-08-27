@@ -2,44 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <title><%= @page_title %></title>
     
     <%= csrf_meta_tags %>
-    
     <%= csp_meta_tag %>
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab&display=swap" rel="stylesheet">
-    
+
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
     <%= favicon_link_tag 'favicons/favicon.ico' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Rails 7 Stylesheets -->
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <!-- Rails 7 JavaScript (Importmap) -->
+    <%= javascript_importmap_tags %>
   </head>
 
   <body class="text-center">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      
       <%= video_tag(
-              'HardDrivePhotojpeg.mp4',
-              id: 'background',
-              autoplay: true,
-              loop: true,
-              muted: true,
-              poster: 'home_bg.png'
-            )
-            %>
+            'HardDrivePhotojpeg.mp4',
+            id: 'background',
+            autoplay: true,
+            loop: true,
+            muted: true,
+            poster: 'home_bg.png'
+          )
+      %>
+
       <%= render "shared/application_nav" %>
-
       <%= yield %>
-
       <%= render "shared/application_footer" %>
-
       <%= alerts %>
       
     </div>    
